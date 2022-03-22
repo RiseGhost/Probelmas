@@ -15,7 +15,7 @@ let s x =
 
 (*5+4+3+2+1 + 4+3+2+1*)
 
-let y =  ref 0 (*Endereço de memória utilizado como variável auxiliar*)
+let y =  ref 0 (*Endereço de memória utilizado como variável auxiliar para efetuar a soma*)
 let rec schroder1 x = 
   y := 0;
   count := !count + 1;
