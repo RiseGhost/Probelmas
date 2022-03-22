@@ -1,6 +1,4 @@
-open Printf
-
-let count = ref 0 
+let count = ref 0 (*-> Endereço de memória onde fica guadado o número de chamadas da função*) 
 let rec schroder x =
   count := !count + 1;
   if x = 0. then
@@ -17,7 +15,7 @@ let s x =
 
 (*5+4+3+2+1 + 4+3+2+1*)
 
-let y =  ref 0
+let y =  ref 0 (*Endereço de memória utilizado como variável auxiliar*)
 let rec schroder1 x = 
   y := 0;
   count := !count + 1;
