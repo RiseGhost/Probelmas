@@ -3,14 +3,17 @@ open Printf
 let count = ref 0 
 let rec schroder x =
   count := !count + 1;
-  if x = 0 then
-  1
+  if x = 0. then
+  1.
   else
-  if x = 1 then
-  2
+  if x = 1. then
+  2.
   else
-  int_of_float((((6.*.(float_of_int(x)-.2.) +. 9.)/.(float_of_int(x)+.1.))*.float_of_int(schroder(x-1))) -. (((float_of_int(x)-.2.)/.(float_of_int(x)+.1.))*.float_of_int(schroder(x-2))))
-  (* Printf.printf "%d" count *)
+    ( (((6.*.x -. 3.)/.(x +. 1.)) *. schroder (x -. 1.)) -. ((x -. 2.)/.(x +. 1.)) *. schroder (x -. 2.) )
+
+
+let s x = 
+  int_of_float ( schroder (float_of_int (x)) )
 
 (*5+4+3+2+1 + 4+3+2+1*)
 
@@ -41,7 +44,7 @@ let () =
       print_string ("Schroder ");
       print_int (i);
       print_string ("->");
-      print_int (schroder i);
+      print_int ( s i );
       print_string (" ->");
       print_int !count;
       print_newline ();
