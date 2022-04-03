@@ -1,3 +1,5 @@
+(*Store este trabalho é nosso a45968 - 03/04/2022 21:30*)
+
 (*ocamlfind ocamlopt -linkpkg -package zarith -package str -package unix a.ml -o a && time ./tp*)
 let count = ref 0 (*-> Endereço de memória onde fica guadado o número de chamadas da função*) 
 let rec schroder x =
