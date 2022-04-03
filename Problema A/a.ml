@@ -1,7 +1,8 @@
-(*Professor Simão este trabalho é nosso a45968 disciplian de PF - 03/04/2022 21:30*)
+(*Professor Simão este trabalho é nosso a45968 disciplian de PF - 03/04/2022 23:25*)
 
 (*ocamlfind ocamlopt -linkpkg -package zarith -package str -package unix a.ml -o a && time ./tp*)
 let count = ref 0 (*-> Endereço de memória onde fica guadado o número de chamadas da função*) 
+(*Calculo da sequência de Schroder utilizando a formula de baixo *)
 let rec schroder x =
   count :=  !count + 1;
   if x = 0. then
@@ -12,9 +13,11 @@ let rec schroder x =
   else
     ( ((6.*.x -. 3.) *. schroder (x -. 1.)) -. ((x -. 2.) *. schroder (x -. 2.) ) ) /. (x +. 1.)
 
+(*Função auxiliar para converter o input e o output da função schroder*)
 let s x = 
   int_of_float ( schroder (float_of_int (x)) )
 
+(*Calculo da sequência de Schroder utilizando a formula de somatórios *)
 let y =  ref 0 (*Endereço de memória utilizado como variável auxiliar para efetuar a soma*)
 let rec schroder1 x = 
   y := 0;
@@ -30,19 +33,18 @@ let rec schroder1 x =
           done;
           3 * schroder1 (x-1) + !y)
 
+(*Função responsável por fazer o calculo de S100*)
 open Z
-
-(*Z.big_int = schroder3 x*)
-let ss = ref []
+let schroderaux = ref []
 let rec schroder3 x =
   if x = Z.of_float 0. then
-    ss := Z.of_float 1. :: !ss
+    schroderaux := Z.of_float 1. :: !schroderaux
   else
   if x = Z.of_float 1. then
-    ss := Z.of_float 2. :: !ss
+    schroderaux := Z.of_float 2. :: !schroderaux
   else
-    ss := ( ((Z.of_float 6. * x - Z.of_float 3.) * (List.nth !ss 0)) - ((x - Z.of_float 2.) * (List.nth !ss 1) ) ) / (x + Z.of_float 1.) :: !ss;
-  List.nth !ss 0
+    schroderaux := ( ((Z.of_float 6. * x - Z.of_float 3.) * (List.nth !schroderaux 0)) - ((x - Z.of_float 2.) * (List.nth !schroderaux 1) ) ) / (x + Z.of_float 1.) :: !schroderaux;
+  List.nth !schroderaux 0
 
 let () = 
     for i = 0  to 10000 do
