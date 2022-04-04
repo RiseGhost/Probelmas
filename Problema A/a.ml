@@ -1,4 +1,4 @@
-(*Professor Simão este trabalho é nosso a45968 disciplian de PF - 03/04/2022 23:25*)
+(*Professor Simão este trabalho é nosso a45968 disciplian de PF - 04/04/2022 17:27*)
 
 (*ocamlfind ocamlopt -linkpkg -package zarith -package str -package unix a.ml -o a && time ./tp*)
 let count = ref 0 (*-> Endereço de memória onde fica guadado o número de chamadas da função*) 
@@ -35,14 +35,8 @@ let rec schroder1 x =
 
 (*Função responsável por fazer o calculo de S100*)
 open Z
-let schroderaux = ref []
+let schroderaux = ref [Z.of_float 1.;Z.of_float 2.]
 let rec schroder3 x =
-  if x = Z.of_float 0. then
-    schroderaux := Z.of_float 1. :: !schroderaux
-  else
-  if x = Z.of_float 1. then
-    schroderaux := Z.of_float 2. :: !schroderaux
-  else
     schroderaux := ( ((Z.of_float 6. * x - Z.of_float 3.) * (List.nth !schroderaux 0)) - ((x - Z.of_float 2.) * (List.nth !schroderaux 1) ) ) / (x + Z.of_float 1.) :: !schroderaux;
   List.nth !schroderaux 0
 
