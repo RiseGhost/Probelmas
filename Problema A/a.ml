@@ -1,4 +1,7 @@
-(*Professor Simão este trabalho é nosso a45968 disciplian de PF - 05/04/2022 20:09*)
+(*Trabalho realizado por:
+-> Nome: José Miguel Alves Melo dos Santos   Número: 45968
+-> Nome: Rúben Alves                         Número: 46244
+*)
 
 (*ocamlfind ocamlopt -linkpkg -package zarith -package str -package unix a.ml -o a && time ./tp*)
 let count = ref 0 (*-> Endereço de memória onde fica guadado o número de chamadas da função*) 
