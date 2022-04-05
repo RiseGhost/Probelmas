@@ -6,12 +6,12 @@ let count = ref 0 (*-> Endereço de memória onde fica guadado o número de cham
 let rec schroder x =
   count :=  !count + 1;
   if x = 0. then
-  1.
+   1.
   else
-  if x = 1. then
-  2.
-  else
-    ( ((6.*.x -. 3.) *. schroder (x -. 1.)) -. ((x -. 2.) *. schroder (x -. 2.) ) ) /. (x +. 1.)
+    if x = 1. then
+      2.
+    else
+      ( ((6.*.x -. 3.) *. schroder (x -. 1.)) -. ((x -. 2.) *. schroder (x -. 2.) ) ) /. (x +. 1.)
 
 (*Função auxiliar para converter o input e o output da função schroder*)
 let s x = 
@@ -35,10 +35,10 @@ let rec schroder1 x =
 
 (*Função responsável por fazer o calculo de S100*)
 open Z
+open Scanf
 let schroderaux = ref [Z.of_float 1.;Z.of_float 2.]
 
-let b = read_int()
-let a = read_int()
+let b,a = Scanf.sscanf (read_line ()) " %d %d" (fun a b -> a,b)
 let () = 
     for i = 0 to 10000 do
       schroderaux := ( ((Z.of_float 6. * Z.of_int i - Z.of_float 3.) * (List.nth !schroderaux 0)) - ((Z.of_int i - Z.of_float 2.) * (List.nth !schroderaux 1) ) ) / (Z.of_int i + Z.of_float 1.) :: !schroderaux;
