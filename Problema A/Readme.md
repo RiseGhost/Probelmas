@@ -1,6 +1,10 @@
 # O que podes encontrar aqui❓:
 Esta pasta foi criada na âmbito de alocar o 1º trabalho realizado na disciplina de __Programação funcional__ e foi selecionada __Ocaml__ como linguagem de programação. O enunciado do problema assim com as formulas matemáticas utilizadas podem ser encontrado dentro do ficheiro __Problema A__. Devido a necessidade de trabalhar com valores enormes, nós tevimos de utilizar uma livraria de precisão arbitária, nós escolhemos a __Zarith__ para isso.
 
+Como houve a necessidade de utilizar uma livraria externa ao Ocaml o comando de compilação teve de ser um pouco alterar. Para tal se pretender compilar o código é necessário utilizar o seguinte comando:
+
+    ocamlfind ocamlopt -linkpkg -package zarith -package str -package unix a.ml -o a && time ./tp
+
 ## Como está organizado o código: 🧑‍💻
 - __Count__ 🔢 -> endereço de memória que é utilizado para contar o número de vezes que uma função foi chamada;
 - __Schroder__ 📐 -> responsável por fazer o calculo da sequência de Schroder. Para tal foi implementada nela a formula matemática que não utiliza somatórios.
