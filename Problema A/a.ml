@@ -3,7 +3,6 @@
 -> Nome: Rúben Alves                         Número: 46244
 *)
 
-(*ocamlfind ocamlopt -linkpkg -package zarith -package str -package unix a.ml -o a && time ./tp*)
 let count = ref 0 (*-> Endereço de memória onde fica guadado o número de chamadas da função*) 
 (*Calculo da sequência de Schroder utilizando a formula de baixo *)
 let rec schroder x =
