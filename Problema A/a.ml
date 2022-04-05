@@ -36,15 +36,21 @@ let rec schroder1 x =
 (*Função responsável por fazer o calculo de S100*)
 open Z
 let schroderaux = ref [Z.of_float 1.;Z.of_float 2.]
-let rec schroder3 x =
-    schroderaux := ( ((Z.of_float 6. * x - Z.of_float 3.) * (List.nth !schroderaux 0)) - ((x - Z.of_float 2.) * (List.nth !schroderaux 1) ) ) / (x + Z.of_float 1.) :: !schroderaux;
-  List.nth !schroderaux 0
 
+let b = read_int()
+let a = read_int()
 let () = 
-    for i = 0  to 10000 do
-      print_string ("Schroder");
-      print_int (i);
-      print_string (" -> ");
-      print_string ( Z.to_string ( schroder3 ( Z.of_int i ) ) );
-      print_newline();
+    for i = 0 to 10000 do
+      schroderaux := ( ((Z.of_float 6. * Z.of_int i - Z.of_float 3.) * (List.nth !schroderaux 0)) - ((Z.of_int i - Z.of_float 2.) * (List.nth !schroderaux 1) ) ) / (Z.of_int i + Z.of_float 1.) :: !schroderaux;
     done;
+    print_int (schroder1 b);
+    print_string (" ");
+    print_int (!count);
+    count := 0;
+    print_newline ();
+    print_int (s b);
+    print_string (" ");
+    print_int (!count);
+    print_newline ();
+    print_string ( Z.to_string ( List.nth !schroderaux ( Z.to_int(Z.of_int 10000 - Z.of_int a) ) ) );
+    print_newline ();
