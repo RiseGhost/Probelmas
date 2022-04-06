@@ -1,6 +1,6 @@
 (*Trabalho realizado por:
 -> Nome: José Miguel Alves Melo dos Santos   Número: 45968
--> Nome: Rúben Alves                         Número: 46244
+-> Nome: Rúben José Dias Alves               Número: 46244
 *)
 
 let count = ref 0 (*-> Endereço de memória onde fica guadado o número de chamadas da função*) 
@@ -11,9 +11,6 @@ let rec schroder x =
     x +. 1.
   else
     ( ((6.*.x -. 3.) *. schroder (x -. 1.)) -. ((x -. 2.) *. schroder (x -. 2.) ) ) /. (x +. 1.)
-
-(*Função auxiliar para converter o input e o output da função schroder*)
-let s x = int_of_float ( schroder (float_of_int (x)) )
 
 (*Calculo da sequência de Schroder utilizando a formula de somatórios *)
 let y =  ref 0 (*Endereço de memória utilizado como variável auxiliar para efetuar a soma*)
@@ -44,7 +41,7 @@ let () =
     print_int (!count);
     count := 0;
     print_newline ();
-    print_int (s b);
+    print_int ( int_of_float ( schroder (float_of_int (b)) ) );
     print_string (" ");
     print_int (!count);
     print_newline ();
