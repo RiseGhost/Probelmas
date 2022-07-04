@@ -140,3 +140,45 @@ List.map add letras
 O output do __List.map__ será:
 
 	string list = ["Casa de putas"; "Mariana = puta"; "Aldeia da puta"]
+
+### Devolver uma lista só com os elementos pares:
+O objetivo desta função é dado uma lista de inteiros devolver uma lista que contêm apenas o elementos pares.
+Para tal vamos utilizar o seguinte código:
+```ocaml
+let list = [3; 4; 10; 80; 7; 1; 34; 37];;
+
+let rec even l =
+	match l with
+	|[] -> []
+	|x::y ->
+		(
+		if x mod 2 = 0 then
+			x::even y
+		else
+			even y
+		);;
+
+even list;;
+```
+O output da função __even__ será:
+
+	int list = [4; 10; 80; 34]
+
+### Inverter uma lista:
+A necessidade de inversão de uma lista pode ocorrer em vários momentos ao longo do precurso de vida um programador. Por isso ter uma função que nos ajude com isso não em seria nada mau. Em Ocaml essa função pode ser bastante simples assim como pode ser visto no exemplo a baixo:
+
+```ocaml
+let reverse list =
+	let a = ref [] in
+	for i = 0 to (List.length list - 1) do
+		a := (List.nth list i) :: !a
+	done;
+	!a;;
+
+reverse [45;4;90;167;2];;
+``` 
+O output da função __reverse__ será:
+
+	int list = [2; 167; 90; 4; 45]
+
+Essa função cria uma referência para uma lista __a__ auxiliar onde irá colocar o valores. Ela coloca sempre o valor que esta na posição i da lista __list__ na primeira posição da lista __a__ empurrando o elemento que anteriormente estava na primeira posição para a segunda, o que estava na segundo para a terceira e por ai sucessivamente.
