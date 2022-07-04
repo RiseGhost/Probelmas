@@ -165,6 +165,7 @@ O output da função __even__ será:
 	int list = [4; 10; 80; 34]
 
 ### Inverter uma lista:
+#### Sem utilizar o List.rev:
 A necessidade de inversão de uma lista pode ocorrer em vários momentos ao longo do precurso de vida um programador. Por isso ter uma função que nos ajude com isso não em seria nada mau. Em Ocaml essa função pode ser bastante simples assim como pode ser visto no exemplo a baixo:
 
 ```ocaml
@@ -181,4 +182,23 @@ O output da função __reverse__ será:
 
 	int list = [2; 167; 90; 4; 45]
 
-Essa função cria uma referência para uma lista __a__ auxiliar onde irá colocar o valores. Ela coloca sempre o valor que esta na posição i da lista __list__ na primeira posição da lista __a__ empurrando o elemento que anteriormente estava na primeira posição para a segunda, o que estava na segundo para a terceira e por ai sucessivamente.
+Essa função cria uma referência para uma lista __a__ auxiliar onde irá colocar o valores. Ela coloca sempre o valor que esta na posição i da lista __list__ na primeira posição da lista __a__ empurrando o elemento que anteriormente estava na primeira posição para a segunda, o que estava na segundo para a terceira e por ai sucessivamente. Essa função também funciona para lista de outros tipos como de strings, etc...
+
+#### Utilizando o List.rev:
+O Ocaml já disponibiliza uma função que faz o mesmo que o exemplo de cima, sendo bastante fácil de usar. Bastando apenas passar a lista que quer inverter.
+
+Por exemplo se quiser inverter a list [10;5;2;-2;0]:
+```ocaml
+List.rev [10;5;2;-2;0]
+```
+O resultado obetido será:
+
+	int list = [0; -2; 2; 5; 10]
+
+Também é possivel fazer com lista de outro tipos primitivos, por exemplo uma lista de string.
+```ocaml
+List.rev ["z";"m";"t";"Youtube"; "A"; "UBI"]
+```
+O resultado obetido será:
+
+	string list = ["UBI"; "A"; "Youtube"; "t"; "m"; "z"]
