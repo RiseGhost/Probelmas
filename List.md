@@ -71,7 +71,7 @@ O output dado pelo __List.sort__ será:
 
 	string list = ["a"; "b"; "c"; "m"; "x"; "z"]
 
-### Aceder ao elemento numa determinada posição de uma lista:
+### Aceder a um elemento numa determinada posição de uma lista:
 Se quiser ober o elemento da posição __index__ de uma lista __L__ em Ocaml basta fazer __List.nth L index__
 
 Por exemplo se quiser imprimir o elemento na 3 posição:
@@ -87,7 +87,7 @@ O output será:
 ### Obter a somar de todos os elementos de uma lista:
 Para tal fim irei criar uma função recursiva que irar receber como argumento uma lista de inteiros e irá returna um inteiro se será a soma de todos os elementos da lista.
 
-Para tal ela irá precurer lista toda elemento a elemento somando o elemento atual ou o próximo elemento. Quando não houver mais elementos na lista ela retorna zero.
+Para tal ela irá precurer a lista toda elemento a elemento somando o elemento atual ou o próximo elemento. Quando não houver mais elementos na lista ela retorna zero.
 
 ```ocaml
 let list = [5; 34; 90; 456; 789; 23; 45]
@@ -102,3 +102,41 @@ soma list
 O valor de __soma list__ será:
 
 	int = 1442
+
+### List.map
+O Ocaml oferece uma poderosa ferrementa para aplicar funções a uma lista.
+O __List.map__ recebe como 1º argumento a função e como 2º argumento a lista e retorna uma lista que resulta da aplicação da função sobre a lista.
+
+
+Por exemplo se quiser obter uma lista com o mesmo tamanho de uma lista original, mas com todos os elemento elevados ao quadrado. Posso usar o seguinte código.
+```ocaml
+let square x = x * x;;
+
+let list = [2;1;5;6;9;8;10]
+
+List.map square list
+```
+O output do __List.map square list__ será:
+
+	int list = [4; 1; 25; 36; 81; 64; 100]
+
+Uma alternativa ao código de cima seria:
+```ocaml
+List.map ( fun x -> x * x ) [2;1;5;6;9;8;10]
+```
+
+O output do __List.map__ também será:
+
+	int list = [4; 1; 25; 36; 81; 64; 100]
+
+Também posso usar o __List.map__ para adicinar uma determinada string a todas as posições de uma lista de strings. Por exemplo:
+```ocaml
+let letras = ["Casa de "; "Mariana = "; "Aldeia da "];;
+
+let add x = x ^ "puta";;
+
+List.map add letras
+```
+O output do __List.map__ será:
+
+	string list = ["Casa de putas"; "Mariana = puta"; "Aldeia da puta"]
