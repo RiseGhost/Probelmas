@@ -202,3 +202,51 @@ List.rev ["z";"m";"t";"Youtube"; "A"; "UBI"]
 O resultado obetido será:
 
 	string list = ["UBI"; "A"; "Youtube"; "t"; "m"; "z"]
+
+### Obter o maior elemento de uma lista:
+Para obter o maior elemento de uma lista irei utilizar dois algoritmos. Um deles feito com as funções fornecidas pelo Ocaml e outro mais generico que pode ser aplicado noutras linguagens.
+
+```ocaml
+let bigger list = 
+	List.nth (List.rev (List.sort compare list)) 0
+```
+
+```ocaml
+let bigger list =
+	let maior = ref (-9999) in
+	for i = 0 to List.length list - 1 do
+	if List.nth list i > !maior then
+		maior := List.nth list i
+	else
+		maior := !maior
+	done;
+	!maior;;
+```
+
+Passando como argurmento a lista [4; 5; -2; 90; 6; 56] as duas função retorna o mesmo output
+
+	int = 90
+
+### Obter o menor elemento de uma lista:
+Como fiz no caso de cima, aqui tembém irei apresentar duas soluções uma usando as funções do Ocaml e outra um caso mais genérico.
+
+```ocaml
+let smaller list =
+	List.nth (List.sort compare list) 0
+```
+
+```ocaml
+let smaller list = 
+	let menor = ref 99999 in
+	for i = 0 to List.length list - 1 do
+		if List.nth list i < !menor then
+			menor := List.nth list i
+		else
+			menor := !menor
+	done;
+	!menor;;
+```
+
+Passando como argurmento a lista [4; 5; -2; 90; 6; 56] as duas função retorna o mesmo output
+
+	int = -2
