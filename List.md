@@ -139,7 +139,7 @@ List.map add letras
 ```
 O output do __List.map__ será:
 
-	string list = ["Casa de putas"; "Mariana = puta"; "Aldeia da puta"]
+	string list = ["Casa de puta"; "Mariana = puta"; "Aldeia da puta"]
 
 ### Devolver uma lista só com os elementos pares:
 O objetivo desta função é dado uma lista de inteiros devolver uma lista que contêm apenas o elementos pares.
@@ -250,3 +250,33 @@ let smaller list =
 Passando como argurmento a lista [4; 5; -2; 90; 6; 56] as duas função retorna o mesmo output
 
 	int = -2
+
+### Obter uma lista só com os elementos nas posições pares:
+Em cima já construir uma função que devolve uma lista com os elementos pares, mas desta vez irei fazer uma função que devolve os elementos nas posições pares.
+__[0,1,2,3,4,5] -> [0,2,4]__
+
+```ocaml
+let rec even_index list =
+	match list with
+	|[] -> []
+	|x::[] -> [x]
+	|x::y::t -> x::even_index t;;
+```
+O output de __even_index [9;5;7;90;1]__ será:
+
+	int list = [9; 7; 1]
+
+### Obter uma lista só com os elementos nas posições impares: 
+Bastante parecido com o algoritmo de anterior mas desta vez para as posições impares.
+__[0,1,2,3,4,5] -> [1,3,5]__
+
+```ocaml
+let rec odd_index list =
+	match list with
+	|[] -> []
+	|[_] -> []
+	|x::y::t -> y::odd_index t
+```
+O output da __odd_index [9;5;7;90;1]__ será
+
+	int list = [5; 90]
