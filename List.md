@@ -280,3 +280,37 @@ let rec odd_index list =
 O output da __odd_index [9;5;7;90;1]__ será
 
 	int list = [5; 90]
+
+### List.combine:
+O List.combine premite ao utilizador combinar duas lista numa só lista.
+Imagine o seguinte cenário: <p>
+Está a guardar os valores da sequência de fibonacci numa lista de maneira que na posição n da lista fica o valor de fibonacci n. E tem outra lista onde estar a guardar os valores de n. E você quer combinar essa duas lista numa nova lista sendo para cada posição n da lista ela irá conter (n, fibonacci n).
+
+```ocaml
+let rec fibonacci n =
+	if n < 2 then
+		n
+	else
+		fibonacci (n - 1) + fibonacci (n - 2);;
+
+let fibo = ref [];;
+let n = ref [];;
+
+for i = 0 to 25 do
+	fibo := !fibo @ [fibonacci i];
+	n := !n @ [i]
+done;;
+
+let combine = List.combine !n !fibo;;
+```
+O valor de __!fibo__ será: 
+	
+	int list = [0; 1; 1; 2; 3; 5; 8; 13; 21; 34; 55; 89; 144; 233; 377; 610; 987; 1597; 2584; 4181; 6765; 10946; 17711; 28657; 46368; 75025]
+
+O valor de __!n__ será:
+
+	int list = [0; 1; 2; 3; 4; 5; 6; 7: 8; 9; 10; 11; 12: 13; 14; 15; 16; 17; 18; 19: 20; 21; 22; 23; 24; 25]
+
+O valor de __combine__ será:
+
+	(int * int) list = [(0, 0); (1, 1); (2, 1); (3, 2); (4, 3); (5, 5); (6, 8); (7, 13); (8, 21); (9, 34); (10, 55); (11, 89); (12, 144); (13, 233); (14, 377); (15, 610); (16, 987); (17, 1597); (18,2584); (19,4181); (20,6765); (21,10946); (22, 17711); (23, 28657); (24, 46368); (25, 75025)]
