@@ -327,3 +327,25 @@ List.split [(1, "um");(2, "dois");( 3, "três");(4, "quarto")]
 O output será:
 
 	int list * string list = ([1; 2; 3; 4], ["um", "dois", "três", "quarto"])
+
+### Soma de todos os elementos de uma lista utilizado o List.fold_right:
+O List.fold_right é uma poderosa ferramenta para aplicar funções a lista. Basicamente vai indo aplicando uma função a cada posição da lista. Não sei explicar muito bem mas com imagens é mais fácil:
+<p>
+
+__List.fold_right f [a1; a2; ...; an] b :__
+
+![](https://user-images.githubusercontent.com/91985039/177613768-3b01f91d-1513-4180-a24a-d0de00237e71.jpeg)
+
+Para fazer a soma de todos elementos de uma lista basta:
+```ocaml
+List.fold_right ( fun x y -> x + y ) [1;2;3;4] 0
+```
+Forma reduzida:
+```ocaml
+List.fold_right (+) [1;2;3;4] 0
+```
+O output da duas forma é igual e será:
+
+	int = 10
+
+![](https://user-images.githubusercontent.com/91985039/177613759-6b5423fc-e292-4419-ad33-0d09c13bee60.jpeg)
