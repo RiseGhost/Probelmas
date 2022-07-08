@@ -166,7 +166,7 @@ O output da função __even__ será:
 
 ### Inverter uma lista:
 #### Sem utilizar o List.rev:
-A necessidade de inversão de uma lista pode ocorrer em vários momentos ao longo do precurso de vida um programador. Por isso ter uma função que nos ajude com isso não em seria nada mau. Em Ocaml essa função pode ser bastante simples assim como pode ser visto no exemplo a baixo:
+A necessidade de inversão de uma lista pode ocorrer em vários momentos ao longo do precurso de vida um programador. Por isso ter uma função que nos ajude com isso não seria nada mau. Em Ocaml essa função pode ser bastante simples assim como pode ser visto no exemplo a baixo:
 
 ```ocaml
 let reverse list =
