@@ -127,3 +127,23 @@ let rec tolist = function
 O output de __tolist g__ será:
 
 	int list = [2; 4; 6]
+
+### Procurar um elemento numa árvore binária:
+O algoritmo seguinte procura um dado elemento numa árvore binária, se o encontrar devolve __TRUE__ se não o encontrar devolve __FALSE__.
+
+```ocaml
+let rec search value = function
+	|Leaf -> false
+	|Node(l,v,r) ->
+		if value = v then
+			true
+		else if value > v then
+			search r
+		else
+			search l;; 
+```
+
+O output de __search 6 g   e    search 50 g__ são respetivamente:
+
+	boolean = true
+	boolean = false
