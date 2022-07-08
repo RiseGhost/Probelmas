@@ -110,3 +110,20 @@ let rec biggest_element = function
 		else
 			biggest_element r;;
 ```
+
+O output de __biggest_element g__ será:
+
+	int = 6
+
+### Obter uma lista com todos os elementos de uma árvore binária:
+Agora irei apresentar um algoritmo capaz de obter uma lista de uma árvore binária.	 Ele irá começar pelo elemento mais a esquedra e mais baixo possivel até o elemento mais a direita possivél.
+
+```ocaml
+let rec tolist = function
+	|Leaf -> []
+	|Node(l,v,r) -> tolist l @ [v] @ tolist r;; 
+```
+
+O output de __tolist g__ será:
+
+	int list = [2; 4; 6]
