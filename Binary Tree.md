@@ -79,3 +79,34 @@ A impressão da árvore g de cima será algo do tipo:
 	Node 6
 	0
 	0
+
+### Obter o menor elemento de uma árvore binária:
+Numa árvore binário o menor elemento será o elemento mais a esquedra possível.
+Então o algoritmo que irei apresentar irá precorrer a árvore binária indo sempre para a esquedra até encontrar uma folha quando a encontrar devolve o elemento anterior a essa folha.
+
+```ocaml
+let rec smaller_element = function
+	|Leaf -> 0
+	|Node(l, v, r) ->
+		if smaller_element l = 0 then
+			v
+		else
+			smaller_element l;;
+```
+
+O output de __smaller_element g__ será
+
+	int = 2
+
+### Obter o maior elemento de uma árvore binária:
+Muito semelhante ao de cima mas desta vez o maior elemento é o elemento mais a direita possivél. Quanto a função encontrar um folha a direita ela devolve esse valor.
+
+```ocaml
+let rec biggest_element = function
+	|Leaf -> 0
+	|Node(l, v, r) ->
+		if biggest_element r = 0 then
+			v
+		else
+			biggest_element r;;
+```
