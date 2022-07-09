@@ -148,7 +148,7 @@ O output de __search 6 g   e    search 50 g__ são respetivamente:
 	boolean = true
 	boolean = false
 
-### Obter o número de elementos de uma árvore binária:
+### Obter o número total de elementos de uma árvore binária:
 O algoritmo precorre o lado esquedro e depois precorre o lado direito da árvore e soma 1 para cada elemento visto quando chega a um Nodo vazio ele soma 0.
 
 ```ocaml
@@ -160,3 +160,33 @@ let rec number_element = function
 O output da função __number_element g__ será:
 
 	int = 3
+
+### Obter o número de elementos pares de uma árvore binária:
+O algoritmo baixo precorre todos o elementos da árvore binária se um valor do Nodo onde ele esta naquele momento for par soma 1 e passa para o seguinte se não, passa somente para o seguinte.
+```ocaml
+let rec even = function
+	|Leaf -> 0
+	|Node(l, v, r) ->
+		if v mod 2 = 0 then
+			1 + even l + even r
+		else
+			even l + even r;;
+```
+O output de __even g__ será:
+
+	int = 3
+
+### Obter uma lista com todos os valores pares de uma árvore binária:
+O algoritmo seguinte vai devolve uma lista com todos os valores pares de uma árvore binária, começando pelo valor mais a esquedra possivél até ao valor mais a direita possivél.
+```ocaml
+let rec even_list = function
+	|Leaf -> []
+	|Node(l,v,r) ->
+		if v mod 2 = 0 then
+			even_list l @ [v] @ even_list r
+		else
+			even_list l @ even_list r;;
+```
+O output de __even_list g__ será:
+
+	int list = [2; 4; 6]
