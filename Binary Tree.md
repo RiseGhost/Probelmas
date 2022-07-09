@@ -206,3 +206,35 @@ let rec leaves = function
 O output de __leaves g__ será:
 
 	int = 2
+
+### Obter a altura de um árvore binária:
+O algoritmo a seguir precorre a árvore binária até as folhas e devolve a maior distância.
+
+```ocaml
+let rec height = function
+	|Leaf -> -1
+	|Node(l,v,r) -> 1 + max (height l) (height r);;
+```
+Para a árvore binária inicial o algoritmo irá retorna:
+
+	int = 1
+
+![](https://user-images.githubusercontent.com/91985039/178117470-cde5dd2f-4ded-4712-a411-0e7982a8c1bf.jpeg)
+
+Para uma árvore um pouco maior tipo a seguinte:
+```ocaml
+let g = Node(Leaf, 4, Leaf)
+let g = add 6 g;;
+let g = add 2 g;;
+let g = add 7 g;;
+let g = add (-5) g;;
+let g = add (-3) g;;
+let g = add (-10) g;;
+let g = add 15 g;;
+let g = add 50 g;;
+```
+O output será:
+
+	int = 4
+
+![](https://user-images.githubusercontent.com/91985039/178117467-3c9fa2e2-30c3-40f6-833c-a08bf5172669.jpeg)
