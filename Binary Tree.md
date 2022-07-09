@@ -147,3 +147,16 @@ O output de __search 6 g   e    search 50 g__ são respetivamente:
 
 	boolean = true
 	boolean = false
+
+### Obter o número de elementos de uma árvore binária:
+O algoritmo precorre o lado esquedro e depois precorre o lado direito da árvore e soma 1 para cada elemento visto quando chega a um Nodo vazio ele soma 0.
+
+```ocaml
+let rec number_element = function
+	|Leaf -> 0
+	|Node(l,v,r) ->
+		1 + element_number l + element_number r;;
+```
+O output da função __number_element g__ será:
+
+	int = 3
