@@ -190,3 +190,19 @@ let rec even_list = function
 O output de __even_list g__ será:
 
 	int list = [2; 4; 6]
+
+### Obter o número de folhas de uma árvore binária:
+O algoritmo seguinte devolve um inteiro que é o número total de folhas que a árvore contém.
+
+```ocaml
+let rec leaves = function
+	|Leaf -> 0
+	|Node(l, v, r) ->
+		if leaves l = 0 && leaves r = 0 then
+			1
+		else
+			leaves l + leaves r;; 
+```
+O output de __leaves g__ será:
+
+	int = 2
