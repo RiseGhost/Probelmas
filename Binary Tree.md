@@ -238,3 +238,15 @@ O output será:
 	int = 4
 
 ![](https://user-images.githubusercontent.com/91985039/178117467-3c9fa2e2-30c3-40f6-833c-a08bf5172669.jpeg)
+
+### Obter a soma de todos os elementos de um árvore binária:
+O algoritmo a baixo precorre a árvore toda e soma o elemento do Nodo atual com os elementos dos Nodos a esquedra e dos Nodos a direita.
+
+```ocaml
+let rec soma = function
+	|Leaf -> 0
+	|Node(l,v,r) -> v + soma l + soma r;;
+```
+O output de __soma g__ será:
+
+	int = 12
