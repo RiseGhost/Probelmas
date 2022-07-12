@@ -24,7 +24,7 @@ Utilizando a árvore binária defina em cima agora irei apresentar uma possivél
 
 ```ocaml
 let rec add x = function
-	|Leaf -> Node(Leaf, x, Leaft)
+	|Leaf -> Node(Leaf, x, Leaf)
 	|Node (l, v, r) as t ->
 		if x = v then t
 		else if x < v then Node(add x l, v, r)
