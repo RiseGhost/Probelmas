@@ -47,7 +47,7 @@ let rec add x tree =
 Por exemplo: (o exemplo é igual para os dois algoritmos)
 
 ```ocaml
-let g = Node(Leaft, 4, Leaft);;
+let g = Node(Leaf, 4, Leaf);;
 let g = add 6 g;;
 let g = add 2 g;;
 ```
@@ -62,8 +62,8 @@ Quando não houver mais nenhum elemento a baixo ele irá imprimir zero, caso con
 open Printf
 
 let rec print_tree t =
-	march t with
-	|Leaft -> Printf.printf "0\n"
+	match t with
+	|Leaf -> Printf.printf "0\n"
 	|Node(l, v, r) ->
 		Printf.printf "Node %d\n" v;
 		print_tree l;
